@@ -11,7 +11,8 @@ public abstract class Kitap {
     private String yayinYili;
     private Durum durum;
 
-    public Kitap(String baslik, String yazar, String yayinYili) {
+    public Kitap(String baslik, String yazar, String yayinYili, Durum durum) {
+        this.durum = durum;
         this.ISBN = new Random().nextLong();
         this.baslik = baslik;
         this.yazar = yazar;
