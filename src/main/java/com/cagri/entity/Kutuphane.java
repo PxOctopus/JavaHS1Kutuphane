@@ -23,7 +23,10 @@ public class Kutuphane {
 
 
     public void kitapIadeAl(Kitap kitap, IUye uye) {
-
+        if (kitap.getDurum().equals(Durum.ODUNCTE)) {
+            uye.iadeEtbyUye(kitap);
+            kitapDurumGuncelle(Durum.ODUNC_ALINABILIR);
+        }
     }
 
     public static void kitapDurumGuncelle(Durum durum) {
