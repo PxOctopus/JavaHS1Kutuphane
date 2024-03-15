@@ -5,7 +5,7 @@ import com.cagri.utility.KutuphaneDB;
 import java.util.List;
 import java.util.Random;
 
-public class Uye implements IUye {
+public class Uye extends Kutuphane implements IUye{
     private String ad;
     private String soyad;
     private long uyeNumarasi;

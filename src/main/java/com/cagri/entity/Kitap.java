@@ -4,7 +4,7 @@ import com.cagri.utility.Durum;
 
 import java.util.Random;
 
-public abstract class Kitap {
+public abstract class Kitap extends Kutuphane{
     private long ISBN;
     private String baslik;
     private String yazar;
