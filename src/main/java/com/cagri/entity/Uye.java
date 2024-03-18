@@ -5,10 +5,16 @@ import com.cagri.utility.KutuphaneDB;
 import java.util.List;
 import java.util.Random;
 
-public class Uye extends Kutuphane implements IUye{
+public class Uye implements IUye{
     private String ad;
     private String soyad;
     private long uyeNumarasi;
+
+    public Uye(String ad, String soyad) {
+        this.ad = ad;
+        this.soyad = soyad;
+        this.uyeNumarasi = new Random().nextLong();
+    }
 
 
     @Override
@@ -23,11 +29,7 @@ public class Uye extends Kutuphane implements IUye{
         KutuphaneDB.mevcutKitaplar.add(kitap);
     }
 
-    public Uye(String ad, String soyad) {
-        this.ad = ad;
-        this.soyad = soyad;
-        this.uyeNumarasi = new Random().nextLong();
-    }
+
 
     public String getAd() {
         return ad;

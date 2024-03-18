@@ -4,12 +4,13 @@ import com.cagri.utility.Durum;
 
 import java.util.Random;
 
-public abstract class Kitap extends Kutuphane{
+public abstract class Kitap {
     private long ISBN;
     private String baslik;
     private String yazar;
     private String yayinYili;
     private Durum durum;
+
 
     public Kitap(String baslik, String yazar, String yayinYili, Durum durum) {
         this.durum = durum;

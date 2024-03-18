@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface IUye {
-    String ad = "";
-    String soyad = "";
-    long uyeNumarasi = 0L;
 
-
+    /**
+     *
+     * TODO; ACCESS DEFAULT CHECK!!!!?
+     */
     void oduncAlbyUye(Kitap kitap);
 
     void iadeEtbyUye(Kitap kitap);
