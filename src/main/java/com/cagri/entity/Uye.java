@@ -1,9 +1,12 @@
 package com.cagri.entity;
 
+import com.cagri.utility.Durum;
 import com.cagri.utility.KutuphaneDB;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class Uye implements IUye{
     private String ad;
@@ -17,14 +20,17 @@ public class Uye implements IUye{
     }
 
 
+
     @Override
     public void oduncAlbyUye(Kitap kitap) {
+        kitap.setDurum(Durum.ODUNCTE);
         KutuphaneDB.oduncAlinanKitaplar.add(kitap);
         KutuphaneDB.mevcutKitaplar.remove(kitap);
     }
 
     @Override
     public void iadeEtbyUye(Kitap kitap) {
+        kitap.setDurum(Durum.ODUNC_ALINABILIR);
         KutuphaneDB.oduncAlinanKitaplar.remove(kitap);
         KutuphaneDB.mevcutKitaplar.add(kitap);
     }

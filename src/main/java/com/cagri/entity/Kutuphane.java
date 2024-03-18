@@ -11,26 +11,22 @@ public class Kutuphane {
 
 
     public void kitapOduncVer(Kitap kitap, IUye uye) {
-        if (kitap.getDurum().equals(Durum.ODUNCTE)) {
-            kitapDurumGuncelle(Durum.ODUNCTE);
-        }else if(kitap.getDurum().equals(Durum.MEVCUT_DEGIL)){
-            kitapDurumGuncelle(Durum.MEVCUT_DEGIL);
-        }else {
+        if (kitap.getDurum().equals(Durum.ODUNC_ALINABILIR)) {
+            kitapDurumGuncelle(kitap);
             uye.oduncAlbyUye(kitap);
-            kitapDurumGuncelle(Durum.ODUNCTE);
         }
     }
 
 
     public void kitapIadeAl(Kitap kitap, IUye uye) {
         if (kitap.getDurum().equals(Durum.ODUNCTE)) {
+            kitapDurumGuncelle(kitap);
             uye.iadeEtbyUye(kitap);
-            kitapDurumGuncelle(Durum.ODUNC_ALINABILIR);
         }
     }
 
-    public static void kitapDurumGuncelle(Durum durum) {
-        switch (durum) {
+    public static void kitapDurumGuncelle(Kitap kitap) {
+        switch (kitap.getDurum()) {
             case ODUNC_ALINABILIR -> System.out.println("Kitap, ödünç alınabilir.");
             case ODUNCTE -> System.out.println("Kitap, ödünçte gözükmektedir.");
             case MEVCUT_DEGIL -> System.out.println("Kitap, kütüphane kayitlarımızda bulunmamaktadır.");
