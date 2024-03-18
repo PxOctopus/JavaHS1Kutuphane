@@ -22,28 +22,33 @@ public class App {
         Kitap kitap9 = new KitapTarih("Roma Tarihi", "Adrian Goldsworthy", "2023", Durum.ODUNC_ALINABILIR);
         Collections.addAll(KutuphaneDB.mevcutKitaplar, kitap1, kitap2, kitap3, kitap4, kitap5, kitap6, kitap7, kitap8, kitap9);
 
-        IUye uye1 = new Uye("Cagri", "Gumuskaptan");
-        IUye uye2 = new Uye("Turkan Sevgin", "Gumuskaptan");
-        IUye uye3 = new Uye("Zeynep Oyku", "Buyukbay");
-        IUye uye4 = new Uye("Erman", "Caglar");
-        IUye uye5 = new Uye("Hasan", "Inceler");
-        IUye uye6 = new Uye("Ozan", "Akyol");
-        IUye uye7 = new Uye("Yılmaz", "Bahtiyar");
-        IUye uye8 = new Uye("Deniz", "Ates");
+        Uye uye1 = new Uye("Cagri", "Gumuskaptan");
+        Uye uye2 = new Uye("Turkan Sevgin", "Gumuskaptan");
+        Uye uye3 = new Uye("Zeynep Oyku", "Buyukbay");
+        Uye uye4 = new Uye("Erman", "Caglar");
+        Uye uye5 = new Uye("Hasan", "Inceler");
+        Uye uye6 = new Uye("Ozan", "Akyol");
+        Uye uye7 = new Uye("Yılmaz", "Bahtiyar");
+        Uye uye8 = new Uye("Deniz", "Ates");
         Collections.addAll(KutuphaneDB.uyeListesi, uye1, uye2, uye3, uye4, uye5, uye6, uye7, uye8);
 
         Kutuphane kutuphane = new Kutuphane();
 //        uye1.oduncAlbyUye(kitap1);
         kutuphane.kitapOduncVer(kitap1, uye2);
-        System.out.println(KutuphaneDB.mevcutKitaplar);
-        System.out.println(KutuphaneDB.oduncAlinanKitaplar);
+        System.out.println("Mevcut kitaplar.......: " + KutuphaneDB.mevcutKitaplar);
+        System.out.println("Odunc verilen kitaplar.......: " +KutuphaneDB.oduncAlinanKitaplar);
 
 //        uye1.iadeEtbyUye(kitap1);
 //        kutuphane.kitapIadeAl(kitap1,uye2);
-        System.out.println(KutuphaneDB.mevcutKitaplar);
-        System.out.println(KutuphaneDB.oduncAlinanKitaplar);
+
         kutuphane.kitapOduncVer(kitap1,uye1);
-        System.out.println(KutuphaneDB.mevcutKitaplar);
-        System.out.println(KutuphaneDB.oduncAlinanKitaplar);
+//        kutuphane.kitapOduncVer(kitap2, uye2);
+//        System.out.println("Mevcut kitaplar.......: " + KutuphaneDB.mevcutKitaplar);
+//        System.out.println("Odunc verilen kitaplar.......: " +KutuphaneDB.oduncAlinanKitaplar);
+
+        kutuphane.kitapIadeAl(kitap1, uye1);
+//        kutuphane.kitapIadeAl(kitap2,uye2);
+        System.out.println("Mevcut kitaplar.......: " + KutuphaneDB.mevcutKitaplar);
+        System.out.println("Odunc verilen kitaplar.......: " +KutuphaneDB.oduncAlinanKitaplar);
     }
 }

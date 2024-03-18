@@ -10,26 +10,38 @@ import java.util.stream.Collectors;
 public class Kutuphane {
 
 
-    public void kitapOduncVer(Kitap kitap, IUye uye) {
+    public void kitapOduncVer(Kitap kitap, Uye uye) {
         if (kitap.getDurum().equals(Durum.ODUNC_ALINABILIR)) {
-            kitapDurumGuncelle(kitap);
             uye.oduncAlbyUye(kitap);
+            kitap.setDurum(Durum.ODUNCTE);
+        }
+        if (kitap.getDurum().equals(Durum.ODUNCTE)){
+            kitapDurumGuncelle(Durum.ODUNCTE);
         }
     }
 
 
-    public void kitapIadeAl(Kitap kitap, IUye uye) {
-        if (kitap.getDurum().equals(Durum.ODUNCTE)) {
-            kitapDurumGuncelle(kitap);
+    public void kitapIadeAl(Kitap kitap, Uye uye) {
             uye.iadeEtbyUye(kitap);
-        }
+            kitap.setDurum(Durum.ODUNC_ALINABILIR);
+            kitapDurumGuncelle(Durum.ODUNC_ALINABILIR);
+
     }
 
-    public static void kitapDurumGuncelle(Kitap kitap) {
-        switch (kitap.getDurum()) {
-            case ODUNC_ALINABILIR -> System.out.println("Kitap, ödünç alınabilir.");
-            case ODUNCTE -> System.out.println("Kitap, ödünçte gözükmektedir.");
-            case MEVCUT_DEGIL -> System.out.println("Kitap, kütüphane kayitlarımızda bulunmamaktadır.");
+    public static void kitapDurumGuncelle(Durum durum) {
+        switch (durum) {
+            case ODUNC_ALINABILIR -> {
+                System.out.println("Kitap, kutuphanede bulunmaktadır.");
+                break;
+            }
+            case ODUNCTE -> {
+                System.out.println("Kitap, ödünç verilmiştir.");
+                break;
+            }
+            case MEVCUT_DEGIL -> {
+                System.out.println("Kitap, kütüphane kayitlarımızda bulunmamaktadır.");
+                break;
+            }
         }
     }
 }

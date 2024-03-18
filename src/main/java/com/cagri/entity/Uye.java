@@ -23,14 +23,12 @@ public class Uye implements IUye{
 
     @Override
     public void oduncAlbyUye(Kitap kitap) {
-        kitap.setDurum(Durum.ODUNCTE);
         KutuphaneDB.oduncAlinanKitaplar.add(kitap);
         KutuphaneDB.mevcutKitaplar.remove(kitap);
     }
 
     @Override
     public void iadeEtbyUye(Kitap kitap) {
-        kitap.setDurum(Durum.ODUNC_ALINABILIR);
         KutuphaneDB.oduncAlinanKitaplar.remove(kitap);
         KutuphaneDB.mevcutKitaplar.add(kitap);
     }
